@@ -9,7 +9,9 @@ class KeiserBLEDataFieldApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
+        var bikeID = Application.Properties.getValue("bikeID");
         BleDataSrc = new KeiserBLEDelegate();
+        BleDataSrc.setBikeID(bikeID);
         Ble.setDelegate(BleDataSrc);
     }
 

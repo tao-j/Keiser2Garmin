@@ -11,13 +11,18 @@ class KeiserBLEDelegate extends Ble.BleDelegate {
     var distance = 0;
     var gear = 0;
 
+    var bikeID = 0;
+
     function initialize() {
         BleDelegate.initialize();
         // System.println("init ble delegate");
     }
 
+    function setBikeID(bid) {
+        bikeID = bid;
+    }
+
     function onScanResults(scanResults) {
-        var bid = 4; // bike id TODO: make it a setting
         while (true) {
             var res = scanResults.next() as Ble.ScanResult;
             if (res != null) {
@@ -29,7 +34,7 @@ class KeiserBLEDelegate extends Ble.BleDelegate {
                 if (msd == null) {
                     continue;
                 }
-                if (msd[3].equals(bid)) {
+                if (msd[3].equals(bikeID)) {
                     // System.println("Parsing data");
                     parseKeiserMSD(msd);
                 }
