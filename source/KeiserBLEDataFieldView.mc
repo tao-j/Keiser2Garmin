@@ -14,6 +14,7 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
     var calorieField = null;
     var durationField = null;
     var distanceField = null;
+    var gearField = null;
 
     const CADENCE_FIELD_ID = 0;
     const HEARTRATE_FIELD_ID = 1;
@@ -21,6 +22,7 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
     const CALORIE_FIELD_ID = 3;
     const DURATION_FIELD_ID = 4;
     const DISTANCE_FIELD_ID = 5;
+    const GEAR_FIELD_ID = 6;
 
     // Set the label of the data field here.
     function initialize() {
@@ -30,9 +32,11 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
         cadenceField = createField(
             "Cadence^",
             CADENCE_FIELD_ID,
-            FitContributor.DATA_TYPE_FLOAT,
+            FitContributor.DATA_TYPE_UINT8,
             {:mesgType=>FitContributor.MESG_TYPE_RECORD,
-             :units=>"RPM"}
+                :units=>"RPM",
+                :nativeNum=>4,
+            }
         );
         cadenceField.setData(0);
 
@@ -40,8 +44,11 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
             "heartRate^",
             HEARTRATE_FIELD_ID,
             FitContributor.DATA_TYPE_FLOAT,
-            {:mesgType=>FitContributor.MESG_TYPE_RECORD,
-             :units=>"BPM"}
+            {
+                :mesgType=>FitContributor.MESG_TYPE_RECORD,
+                :units=>"BPM",
+                // :nativeNum=>2,
+            }
         );
         cadenceField.setData(0);
 
@@ -49,8 +56,11 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
             "Power^",
             POWER_FIELD_ID,
             FitContributor.DATA_TYPE_UINT16,
-            {:mesgType=>FitContributor.MESG_TYPE_RECORD,
-             :units=>"W"}
+            {
+                :mesgType=>FitContributor.MESG_TYPE_RECORD,
+                :units=>"W",
+                :nativeNum=>7,
+            }
         );
         powerField.setData(0);
 
@@ -58,8 +68,11 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
             "Calorie^",
             CALORIE_FIELD_ID,
             FitContributor.DATA_TYPE_UINT16,
-            {:mesgType=>FitContributor.MESG_TYPE_RECORD,
-             :units=>"kCal"}
+            {
+                :mesgType=>FitContributor.MESG_TYPE_RECORD,
+                :units=>"kCal",
+                :nativeNum=>33,
+            }
         );
         calorieField.setData(0);
 
@@ -67,8 +80,11 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
             "Duration^",
             DURATION_FIELD_ID,
             FitContributor.DATA_TYPE_UINT16,
-            {:mesgType=>FitContributor.MESG_TYPE_RECORD,
-             :units=>"s"}
+            {
+                :mesgType=>FitContributor.MESG_TYPE_RECORD,
+                :units=>"s",
+                :nativeNum=>2,
+            }
         );
         durationField.setData(0);
 
@@ -76,10 +92,25 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
             "Distance^",
             DISTANCE_FIELD_ID,
             FitContributor.DATA_TYPE_FLOAT,
-            {:mesgType=>FitContributor.MESG_TYPE_RECORD,
-             :units=>"mile"}
+            {
+                :mesgType=>FitContributor.MESG_TYPE_RECORD,
+                :units=>"mile",
+                :nativeNum=>5,
+            }
         );
         distanceField.setData(0);
+
+        gearField = createField(
+            "resistance",
+            GEAR_FIELD_ID,
+            FitContributor.DATA_TYPE_UINT8,
+            {
+                :mesgType=>FitContributor.MESG_TYPE_RECORD,
+                :units=>"R",
+                :nativeNum=>10,
+            }
+        );
+        gearField.setData(0);
     }
 
     function bind(src) {
@@ -99,11 +130,12 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
             calorieField.setData(dataSrc.calorie);
             durationField.setData(dataSrc.duration);
             distanceField.setData(dataSrc.distance);
+            gearField.setData(dataSrc.gear);
 
             return dataSrc.power;
         }
         else {
-            return 0.1;
+            return null;
         }
     }
 
