@@ -1,4 +1,5 @@
 # Garmin Keiser M Series BLE 
+[Garmin Connect IQ Store Link](https://apps.garmin.com/en-US/apps/3ff8a2fc-dc5d-4509-a7d8-33d7f7d43a45)
 
 This implements a [Garmin Connect IQ software](https://developer.garmin.com/connect-iq/) to capture Keiser M series bikes Bluetooth LE data according to their published [specs](https://dev.keiser.com/mseries/direct/).
 
