@@ -30,7 +30,7 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
         label = "Power(K)";
 
         cadenceField = createField(
-            "Cadence^",
+            "Cadence",
             CADENCE_FIELD_ID,
             FitContributor.DATA_TYPE_UINT8,
             {:mesgType=>FitContributor.MESG_TYPE_RECORD,
@@ -41,7 +41,7 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
         cadenceField.setData(0);
 
         heartRateField = createField(
-            "heartRate^",
+            "HeartRate (Keiser)",
             HEARTRATE_FIELD_ID,
             FitContributor.DATA_TYPE_FLOAT,
             {
@@ -53,31 +53,31 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
         cadenceField.setData(0);
 
         powerField = createField(
-            "Power^",
+            "Power",
             POWER_FIELD_ID,
             FitContributor.DATA_TYPE_UINT16,
             {
                 :mesgType=>FitContributor.MESG_TYPE_RECORD,
-                :units=>"W",
+                :units=>"Watts",
                 :nativeNum=>7,
             }
         );
         powerField.setData(0);
 
         calorieField = createField(
-            "Calorie^",
+            "Calories",
             CALORIE_FIELD_ID,
             FitContributor.DATA_TYPE_UINT16,
             {
                 :mesgType=>FitContributor.MESG_TYPE_RECORD,
-                :units=>"kCal",
+                :units=>"Cal",
                 :nativeNum=>33,
             }
         );
         calorieField.setData(0);
 
         durationField = createField(
-            "Duration^",
+            "Duration (Keiser)",
             DURATION_FIELD_ID,
             FitContributor.DATA_TYPE_UINT16,
             {
@@ -89,7 +89,7 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
         durationField.setData(0);
 
         distanceField = createField(
-            "Distance^",
+            "Distance",
             DISTANCE_FIELD_ID,
             FitContributor.DATA_TYPE_FLOAT,
             {
@@ -101,7 +101,7 @@ class KeiserBLEDataFieldView extends WatchUi.SimpleDataField {
         distanceField.setData(0);
 
         gearField = createField(
-            "resistance",
+            "Gear",
             GEAR_FIELD_ID,
             FitContributor.DATA_TYPE_UINT8,
             {

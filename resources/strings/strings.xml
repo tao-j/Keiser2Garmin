@@ -1,4 +1,16 @@
 <strings>
     <string id="AppName">Keiser BLE Data Field</string>
     <string id="BikeIDName">Bike ID#</string>
+    <string id="Cadence">Cadence</string>
+    <string id="CadenceUnits">RPM</string>
+    <string id="HeartRate">Heart Rate (reported by Keiser)</string>
+    <string id="HeartRateUnits">BPM</string>
+    <string id="Power">Power</string>
+    <string id="PowerUnits">Watts</string>
+    <string id="Calories">Calories</string>
+    <string id="CaloriesUnits">Cal</string>
+    <string id="Distance">Distance</string>
+    <string id="DistanceUnits">Miles</string>
+    <string id="Gear">Gear</string>
+    <string id="GearUnits">Gear</string>
 </strings>
