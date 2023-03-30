@@ -12,6 +12,8 @@ Monitor the if the data is captured.
 
 After workout, full FIT data is can be downloaded from [Garmin Connect](https://connect.garmin.com) (CIQ).
 
+Try the offical mSeries app from Keiser to see if BLE data can be received by phone if the data is not shown on watch.
+
 ## Technical Details
 This implements a [Garmin Connect IQ software](https://developer.garmin.com/connect-iq/) to capture Keiser M series bikes Bluetooth LE (Bluetooth Smart, BLE) data according to their published [specs](https://dev.keiser.com/mseries/direct/).
 
